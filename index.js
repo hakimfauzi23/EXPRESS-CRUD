@@ -8,6 +8,7 @@ app.get('/todos', TodoController.get)
 app.get('/todos/:id', TodoController.getById)
 app.post('/todos/',TodoController.create)
 app.put('/todos/:id',TodoController.update)
+app.delete('/todos/:id',TodoController.delete)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
