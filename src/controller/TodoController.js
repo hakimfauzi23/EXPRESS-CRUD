@@ -16,5 +16,19 @@ class TodoController {
         const data = await Todo.create(req.body)
         res.json(data)
     }
+
+    static async update(req, res) {
+        const data = await Todo.update(req.body, {
+            where : {
+                id : req.params["id"]
+            }
+        })
+        if(data){
+
+            const get = await Todo.findByPk(req.params["id"])
+            return res.json(get)
+        }
+        return res.json("failed")
+    }
 }
 module.exports = TodoController;
